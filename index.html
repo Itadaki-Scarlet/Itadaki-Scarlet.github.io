@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html style="height: 100%; margin: 0;">
+<head>
+<title>Remnant: Heart</title>
+ <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="scripts/leaflet/leaflet.css" />
+<script src="scripts/leaflet/leaflet.js"> </script>
+</head>
+
+<body style="height: 100%; margin: 0;">
+<div id="map" style="widht: 100%; height: 100%; background: #ffffff; margin: 0;"></div>
+<script type="text/javascript">
+// Vars
+var mapSW = [0, 8192],
+mapNE = [8192, 0];
+
+// Declare Map Object
+var map = L.map('map').setView([0, 0], 1);
+
+
+// Reference the titles
+L.tileLayer('maps/{z}/{x}/{y}.png', {
+minZoom: 1,
+maxZoom: 5,
+continuousWrold: false,
+noWrap: true,
+crs: L.CRS.Simple,
+}).addTo(map);
+
+
+map.setMaxBounds(new L.LatLngBounds(
+map.unproject(mapSW, map.getMaxZoom()),
+map.unproject(mapNE, map.getMaxZoom())
+));
+
+//Icons
+
+var MOB_Icon = L.icon({
+    iconUrl: 'scripts/leaflet/images/MAP_03.png',
+    iconSize: [25, 41],
+    iconAnchor: [11, 41],
+    popupAnchor: [1, -21],
+    shadowUrl: 'scripts/leaflet/images/marker-shadow.png',
+    shadowSize: [41, 41],
+    shadowAnchor: [10, 41]
+});
+
+var House_Icon = L.icon({
+    iconUrl: 'scripts/leaflet/images/MAP_05.png',
+    iconSize: [25, 41],
+    iconAnchor: [11, 41],
+    popupAnchor: [1, -21],
+    shadowUrl: 'scripts/leaflet/images/marker-shadow.png',
+    shadowSize: [41, 41],
+    shadowAnchor: [10, 41]
+});
+
+var Rift_Icon = L.icon({
+    iconUrl: 'scripts/leaflet/images/MAP_07.png',
+iconSize: [25, 41],
+    iconAnchor: [11, 41],
+    popupAnchor: [1, -21],
+    shadowUrl: 'scripts/leaflet/images/marker-shadow.png',
+    shadowSize: [41, 41],
+    shadowAnchor: [10, 41]});
+
+var Danger_Icon = L.icon({
+    iconUrl: 'scripts/leaflet/images/MAP_09.png',
+   iconSize: [25, 41],
+    iconAnchor: [11, 41],
+    popupAnchor: [1, -21],
+    shadowUrl: 'scripts/leaflet/images/marker-shadow.png',
+    shadowSize: [41, 41],
+    shadowAnchor: [10, 41]
+});
+
+var Landmark_Icon = L.icon({
+    iconUrl: 'scripts/leaflet/images/MAP_11.png',
+iconSize: [25, 41],
+    iconAnchor: [11, 41],
+    popupAnchor: [1, -21],
+    shadowUrl: 'scripts/leaflet/images/marker-shadow.png',
+    shadowSize: [41, 41],
+    shadowAnchor: [10, 41]
+});
+
+var Shop_Icon = L.icon({
+    iconUrl: 'scripts/leaflet/images/MAP_13.png',
+ iconSize: [25, 41],
+    iconAnchor: [11, 41],
+    popupAnchor: [1, -21],
+    shadowUrl: 'scripts/leaflet/images/marker-shadow.png',
+    shadowSize: [41, 41],
+    shadowAnchor: [10, 41]
+});
+
+var Events_Icon = L.icon({
+    iconUrl: 'scripts/leaflet/images/MAP_15.png',
+iconSize: [25, 41],
+    iconAnchor: [11, 41],
+    popupAnchor: [1, -21],
+    shadowUrl: 'scripts/leaflet/images/marker-shadow.png',
+    shadowSize: [41, 41],
+    shadowAnchor: [10, 41]
+});
+
+//Locations
+
+var marker = L.marker([0, 0], {
+draggable: true,
+}).addTo(map);
+marker.bindPopup('');
+
+// Faction Bases
+var HakureiShrine = L.marker([70.199994, -106.787109], {icon: MOB_Icon
+});
+HakureiShrine.bindPopup('<p style="text-align: center;"><strong>Hakurei Shrine</strong></p> <p style="text-align: justify;">The perfect replica of the Hakurei Shrine if seen from the outside.The orignal shrine was from a now lost world.</p> <p>Now with improvements!</p>  <p style="text-align: justify;"><strong>Residents:</strong> Itadaki Scarlet, Reimu Hakurei, Rumia</p>')/*.openPopup()*/;
+
+//Houses
+var Newdoreme= L.marker([69.580563, -109.02832], {icon: House_Icon
+});
+Newdoreme.bindPopup('<p style="text-align: center;"><strong>Newdoreme</strong></p> <p style="text-align: left;">A mansion with a small house on its ground. Legends from the lost world resid here.</p> <p style="text-align: left;"><strong>Residents:</strong> Jeanne d Arc, Shion Yorigami, Vlad III</p>')/*.openPopup()*/;
+
+var TealManor= L.marker([69.457554, -107.929688], {icon: House_Icon
+});
+TealManor.bindPopup('<p style="text-align: center;"><strong>Teal Manor</strong></p> <p style="text-align: left;"> The property of Aristocrat Sorren Teal, a strange, wealthy man, and those who share the mansion with him. Not much is known with their whole agenda. </p> <p style="text-align: left;"><strong>Residents:</strong> Sorren Teal, Chain, Erica Scorch, Henry Palladium, Rowan Ash</p>')/*.openPopup()*/;
+
+var NewDevilMansion= L.marker([70.422079, -114.960938], {icon: House_Icon
+});
+NewDevilMansion.bindPopup('<p style="text-align: center;"><strong>New Devil Mansion</strong></p> <p style="text-align: left;">The new mansion of the residents from Scarlet Devil Mansion from the lost world.</p> <p style="text-align: left;"><strong>Residents:</strong> Cruor Scarlet, Flandre Scarlet, Hong Meiling/Sakuya Izayoi, Koakuma, Patchouli Knowledge, Remilia Scarlet</p>')/*.openPopup()*/;
+
+
+//Rift
+var TheRift = L.marker([70.110485, -110.170898], {icon: Rift_Icon
+});
+TheRift.bindPopup('<p style="text-align: center;"><strong>The Rift</strong></p>')/*.openPopup()*/;
+
+
+//Shops/Services
+var HikarisBar = L.marker([69.794136, -114.477539], {icon: Shop_Icon
+});
+HikarisBar.bindPopup('<p style="text-align: center;"><strong>Hikari Bar</strong>')/*.openPopup()*/;
+
+var WarrenLibrary = L.marker ([69.021414, -46.889648], {icon: Shop_Icon
+});
+WarrenLibrary.bindPopup('<p style="text-align: center;"><strong>Warren Library</strong></p> <p style="text-align: left;">A library full of Remnant History, and encyclopedias, a perfect place for Haven students to study.</p>')
+
+// Danger
+var TheEye = L.marker([81.947846, -141.679688], {icon: Danger_Icon
+});
+TheEye.bindPopup('<p style="text-align: center;"><strong>The Eye</strong>')/*.openPopup()*/;
+
+//Landmark
+var Beacon = L.marker ([69.271709, -108.017578], {icon: Landmark_Icon
+});
+Beacon.bindPopup('<p style="text-align: center;"><strong>Beacon</strong>')/*.openPopup()*/;
+
+var Heaven = L.marker ([68.895187, -47.373047], {icon: Landmark_Icon
+});
+Heaven.bindPopup('<p style="text-align: center;"><strong>Heaven</strong>')/*.openPopup()*/;
+
+var Ravenbanditcamp = L.marker ([72.019729, -63.017578], {icon: Landmark_Icon
+});
+Ravenbanditcamp.bindPopup('<p style="text-align: center;"><strong>Raven Bandit Camp</strong>')/*.openPopup()*/;
+
+var Argus = L.marker ([75.084326, -52.77832], {icon: Landmark_Icon
+});
+Argus.bindPopup('<p style="text-align: center;"><strong>Argus</strong>')/*.openPopup()*/;
+
+var ForeverFalls = L.marker ([70.244604, -111.489258], {icon: Landmark_Icon
+});
+ForeverFalls.bindPopup('<p style="text-align: center;"><strong>Forever Falls(Red Area)</strong>')/*.openPopup()*/;
+
+// Events and Arcs
+var Event_Arc= L.marker ([79.13826, -86.660156], {icon: Events_Icon
+});
+Event_Arc.bindPopup('<p style="text-align: center;"><strong>Atlas Civil War</strong>')/*.openPopup()*/;
+
+
+//Draggable Thing
+//HakureiShrine.bindPopup('').openPopup();
+marker.on('dragend', function(e) {
+marker.getPopup().setContent('Clicked ' + marker.getLatLng().toString()).openOn(map);
+});
+
+
+//Layers
+var Services = L.layerGroup([HikarisBar, WarrenLibrary]).addTo(map);
+var MOB = L.layerGroup([HakureiShrine]).addTo(map);
+var Landmark = L.layerGroup([Beacon, ForeverFalls, Ravenbanditcamp, Argus, Heaven]).addTo(map);
+var Houses = L.layerGroup([NewDevilMansion, Newdoreme, TealManor]).addTo(map);
+var Danger = L.layerGroup([TheEye]).addTo(map);
+var Portal = L.layerGroup([TheRift]).addTo(map);
+var Events = L.layerGroup([Event_Arc]).addTo(map);
+
+var overlays= {
+"Landmark" : Landmark,
+"Houses" : Houses,
+"Shops/Services" : Services,
+"Bases" : MOB,
+"Danger" : Danger,
+"Portals" : Portal,
+"Events": Events
+};
+
+L.control.layers(null, overlays).addTo(map);
+
+</script>
+</body>
+</html>
