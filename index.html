@@ -117,6 +117,16 @@ var HakureiShrine = L.marker([70.199994, -106.787109], {icon: MOB_Icon
 });
 HakureiShrine.bindPopup('<p style="text-align: center;"><strong>Hakurei Shrine</strong></p> <p style="text-align: justify;">The perfect replica of the Hakurei Shrine if seen from the outside.The orignal shrine was from a now lost world, it has a backdoor that leads one to the moon.</p> <p>Now with improvements!</p>  <p style="text-align: justify;"><strong>Residents:</strong> Reimu Hakurei, Rumia</p>')/*.openPopup()*/;
 
+var Abbadon_Palace = L.marker([-79.935918, -77.34375], {icon: MOB_Icon
+});
+Abbadon_Palace.bindPopup('<p style="text-align: center;"><strong>Abbadon Palace</strong></p> <p style="text-align: justify;"> The palace of the Demon Queen and other monarchs.</p><p style="text-align: justify;"><strong>Residents:</strong>Demon Queen, Demon Princes, Demon Princesses</p>')/*.openPopup()*/;
+
+var Faroff_Kingdom = L.marker([80.474065, 93.339844], {icon: MOB_Icon
+});
+Faroff_Kingdom.bindPopup('<p style="text-align: center;"><strong>Faroff Kingdom</strong></p> <p style="text-align: justify;">A powerful entity resides here</p><p style="text-align: justify;"><strong>Residents:</strong>Faroff, Okilitus Dark, Mar, Ex-Thralls</p>')/*.openPopup()*/;
+
+
+
 //Houses
 var Newdoreme= L.marker([69.580563, -109.02832], {icon: House_Icon
 });
@@ -177,6 +187,14 @@ var ForeverFalls = L.marker ([70.244604, -111.489258], {icon: Landmark_Icon
 });
 ForeverFalls.bindPopup('<p style="text-align: center;"><strong>Forever Falls(Red Area)</strong>')/*.openPopup()*/;
 
+var MoonShrine = L.marker ([13.923404, 9.84375], {icon: Landmark_Icon
+});
+MoonShrine.bindPopup('<p style="text-align: center;"><strong>Moon Shrine</strong></p> <p style="text-align: left;">A strange shrine on the moon, its backdoor leads to the Hakurei Shrine.</p>')/*.openPopup()*/;
+
+var AbbadonColosseum = L.marker ([-69.960439, -90.527344], {icon: Landmark_Icon
+});
+AbbadonColosseum.bindPopup('<p style="text-align: center;"><strong>Abbadon Colosseum</strong></p> <p style="text-align: left;">Those who fight here prove to the Demon Queen that they are worth it.</p>')/*.openPopup()*/;
+
 // Events and Arcs
 var Event_Arc= L.marker ([79.13826, -86.660156], {icon: Events_Icon
 });
@@ -192,8 +210,8 @@ marker.getPopup().setContent('Clicked ' + marker.getLatLng().toString()).openOn(
 
 //Layers
 var Services = L.layerGroup([HikarisBar, WarrenLibrary]).addTo(map);
-var MOB = L.layerGroup([HakureiShrine]).addTo(map);
-var Landmark = L.layerGroup([Beacon, ForeverFalls, Ravenbanditcamp, Argus, Heaven]).addTo(map);
+var MOB = L.layerGroup([HakureiShrine, Abbadon_Palace, Faroff_Kingdom]).addTo(map);
+var Landmark = L.layerGroup([Beacon, ForeverFalls, Ravenbanditcamp, Argus, Heaven, MoonShrine, AbbadonColosseum]).addTo(map);
 var Houses = L.layerGroup([NewDevilMansion, Newdoreme, TealManor, Safehouse_Avenger]).addTo(map);
 var Danger = L.layerGroup([TheEye]).addTo(map);
 var Portal = L.layerGroup([TheRift]).addTo(map);
