@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="height: 100%; margin: 0;">
 <head>
-<title>Remnant: Heart</title>
+<title>World Map</title>
  <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="scripts/leaflet/leaflet.css" />
@@ -115,12 +115,17 @@ marker.bindPopup('');
 // Faction Bases
 var HakureiShrine = L.marker([70.199994, -106.787109], {icon: MOB_Icon
 });
-HakureiShrine.bindPopup('<p style="text-align: center;"><strong>Hakurei Shrine</strong></p> <p style="text-align: justify;">The perfect replica of the Hakurei Shrine if seen from the outside.The orignal shrine was from a now lost world.</p> <p>Now with improvements!</p>  <p style="text-align: justify;"><strong>Residents:</strong> Itadaki Scarlet, Reimu Hakurei, Rumia</p>')/*.openPopup()*/;
+HakureiShrine.bindPopup('<p style="text-align: center;"><strong>Hakurei Shrine</strong></p> <p style="text-align: justify;">The perfect replica of the Hakurei Shrine if seen from the outside.The orignal shrine was from a now lost world, it has a backdoor that leads one to the moon.</p> <p>Now with improvements!</p>  <p style="text-align: justify;"><strong>Residents:</strong> Reimu Hakurei, Rumia</p>')/*.openPopup()*/;
 
 //Houses
 var Newdoreme= L.marker([69.580563, -109.02832], {icon: House_Icon
 });
 Newdoreme.bindPopup('<p style="text-align: center;"><strong>Newdoreme</strong></p> <p style="text-align: left;">A mansion with a small house on its ground. Legends from the lost world resid here.</p> <p style="text-align: left;"><strong>Residents:</strong> Jeanne d Arc, Shion Yorigami, Vlad III</p>')/*.openPopup()*/;
+
+var Safehouse_Avenger= L.marker([69.457554, -107.929688], {icon: House_Icon
+});
+Safehouse_Avenger.bindPopup('<p style="text-align: center;"><strong>Safehouse</strong></p> <p style="text-align: left;"> Located at the basement of a building, pretty small inside but very modern and well equipped. </p> <p style="text-align: left;"><strong>Residents:</strong> Itadaki Scarlet, Jeanne d Arc(Alter), Mashu Kyrielight </p>')/*.openPopup()*/;
+
 
 var TealManor= L.marker([69.457554, -107.929688], {icon: House_Icon
 });
@@ -189,7 +194,7 @@ marker.getPopup().setContent('Clicked ' + marker.getLatLng().toString()).openOn(
 var Services = L.layerGroup([HikarisBar, WarrenLibrary]).addTo(map);
 var MOB = L.layerGroup([HakureiShrine]).addTo(map);
 var Landmark = L.layerGroup([Beacon, ForeverFalls, Ravenbanditcamp, Argus, Heaven]).addTo(map);
-var Houses = L.layerGroup([NewDevilMansion, Newdoreme, TealManor]).addTo(map);
+var Houses = L.layerGroup([NewDevilMansion, Newdoreme, TealManor, Safehouse_Avenger]).addTo(map);
 var Danger = L.layerGroup([TheEye]).addTo(map);
 var Portal = L.layerGroup([TheRift]).addTo(map);
 var Events = L.layerGroup([Event_Arc]).addTo(map);
