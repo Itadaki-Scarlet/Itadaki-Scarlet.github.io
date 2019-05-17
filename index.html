@@ -125,6 +125,14 @@ var Faroff_Kingdom = L.marker([80.474065, 93.339844], {icon: MOB_Icon
 });
 Faroff_Kingdom.bindPopup('<p style="text-align: center;"><strong>Faroff Kingdom</strong></p> <p style="text-align: justify;">A powerful entity resides here</p><p style="text-align: justify;"><strong>Residents:</strong>Faroff, Okilitus Dark, Mar, Ex-Thralls</p>')/*.openPopup()*/;
 
+var WhiteShip = L.marker([69.271709, -49.394531], {icon: MOB_Icon
+});
+WhiteShip.bindPopup('<p style="text-align: center;"><strong>White Rock Shooter Spaceship</strong></p>')/*.openPopup()*/;
+
+var DemonUnderground = L.marker([68.768235, -46.625977], {icon: MOB_Icon
+});
+DemonUnderground.bindPopup('<p style="text-align: center;"><strong>Underground Secret Community of Demons Fae and other refuges</strong></p><p style="text-align: justify;"><strong>Residents:</strong> 4000</p>')/*.openPopup()*/;
+
 
 
 //Houses
@@ -144,6 +152,10 @@ TealManor.bindPopup('<p style="text-align: center;"><strong>Teal Manor</strong><
 var NewDevilMansion= L.marker([70.422079, -114.960938], {icon: House_Icon
 });
 NewDevilMansion.bindPopup('<p style="text-align: center;"><strong>New Devil Mansion</strong></p> <p style="text-align: left;">The new mansion of the residents from Scarlet Devil Mansion from the lost world.</p> <p style="text-align: left;"><strong>Residents:</strong> Cruor Scarlet, Flandre Scarlet, Hong Meiling/Sakuya Izayoi, Koakuma, Patchouli Knowledge, Remilia Scarlet</p>')/*.openPopup()*/;
+
+var WhitePenthouse = L.marker([68.926811, -48.735352], {icon: House_Icon
+});
+WhitePenthouse.bindPopup('<p style="text-align: center;"><strong>White Rock Shooter Penthouse</strong></p> <p style="text-align: left;"><strong>Residents:</strong> Mefe, Saha, White Rock Shooter</p>')/*.openPopup()*/;
 
 
 //Rift
@@ -210,9 +222,9 @@ marker.getPopup().setContent('Clicked ' + marker.getLatLng().toString()).openOn(
 
 //Layers
 var Services = L.layerGroup([HikarisBar, WarrenLibrary]).addTo(map);
-var MOB = L.layerGroup([HakureiShrine, Abbadon_Palace, Faroff_Kingdom]).addTo(map);
+var MOB = L.layerGroup([HakureiShrine, Abbadon_Palace, Faroff_Kingdom, WhiteShip, DemonUnderground]).addTo(map);
 var Landmark = L.layerGroup([Beacon, ForeverFalls, Ravenbanditcamp, Argus, Heaven, MoonShrine, AbbadonColosseum]).addTo(map);
-var Houses = L.layerGroup([NewDevilMansion, Newdoreme, TealManor, Safehouse_Avenger]).addTo(map);
+var Houses = L.layerGroup([NewDevilMansion, Newdoreme, TealManor, Safehouse_Avenger, WhitePenthouse]).addTo(map);
 var Danger = L.layerGroup([TheEye]).addTo(map);
 var Portal = L.layerGroup([TheRift]).addTo(map);
 var Events = L.layerGroup([Event_Arc]).addTo(map);
