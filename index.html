@@ -133,6 +133,9 @@ var DemonUnderground = L.marker([68.768235, -46.625977], {icon: MOB_Icon
 });
 DemonUnderground.bindPopup('<p style="text-align: center;"><strong>Underground Secret Community of Demons Fae and other refuges</strong></p><p style="text-align: justify;"><strong>Residents:</strong> 4000</p>')/*.openPopup()*/;
 
+var s9hrines = L.marker([-69.380313, 37.001953], {icon: MOB_Icon
+});
+s9hrines.bindPopup('<p style="text-align: center;"><strong>9 Shrines Adventures and Dines</strong></p> <p style="text-align: left;"> The HQ of the main cast from TI, along with a now thriving town. Not necessarily owned by a nation.</p>')/*.openPopup()*/;
 
 
 //Houses
@@ -173,10 +176,25 @@ var WarrenLibrary = L.marker ([69.021414, -46.889648], {icon: Shop_Icon
 });
 WarrenLibrary.bindPopup('<p style="text-align: center;"><strong>Warren Library</strong></p> <p style="text-align: left;">A library full of Remnant History, and encyclopedias, a perfect place for Haven students to study.</p>')
 
+var Meadshire = L.marker ([-51.289406, 19.379883], {icon: Shop_Icon
+});
+Meadshire.bindPopup('<p style="text-align: center;"><strong>Meadshire</strong></p> <p style="text-align: left;">A place where people can pay a large amount of money to pretend to be adventures. Everything there is  incredibly fake. Run by the Alarany</p>')
+
+
 // Danger
 var TheEye = L.marker([81.947846, -141.679688], {icon: Danger_Icon
 });
 TheEye.bindPopup('<p style="text-align: center;"><strong>The Eye</strong>')/*.openPopup()*/;
+
+var Freearch = L.marker([-36.173357, 52.119141], {icon: Danger_Icon
+});
+Freearch.bindPopup('<p style="text-align: center;"><strong>Freearch</strong></p> <p style="text-align: left;">Very little animal and human life, overrun by monsters, an endless winter strom that is slowly moving south, and a moving castle.</p>')
+
+var POL = L.marker([-70.78691, 36.650391], {icon: Danger_Icon
+});
+POL.bindPopup('<p style="text-align: center;"><strong>The Prison of Lights</strong></p> <p style="text-align: left;">A very dangerous dungeon where a great evil spirit was trapped.</p>')
+
+
 
 //Landmark
 var Beacon = L.marker ([69.271709, -108.017578], {icon: Landmark_Icon
@@ -207,6 +225,14 @@ var AbbadonColosseum = L.marker ([-69.960439, -90.527344], {icon: Landmark_Icon
 });
 AbbadonColosseum.bindPopup('<p style="text-align: center;"><strong>Abbadon Colosseum</strong></p> <p style="text-align: left;">Those who fight here prove to the Demon Queen that they are worth it.</p>')/*.openPopup()*/;
 
+var BIGCITY = L.marker ([-78.733501, 115.751953], {icon: Landmark_Icon
+});
+BIGCITY.bindPopup('<p style="text-align: center;"><strong>Big City</strong></p> <p style="text-align: left;">The capital city of Onorhant, renamed by Aesling. A city of beauty, culture, and TRUTH. The people there  are incredibly dense.</p>')/*.openPopup()*/;
+
+
+
+
+
 // Events and Arcs
 var Event_Arc= L.marker ([79.13826, -86.660156], {icon: Events_Icon
 });
@@ -221,11 +247,11 @@ marker.getPopup().setContent('Clicked ' + marker.getLatLng().toString()).openOn(
 
 
 //Layers
-var Services = L.layerGroup([HikarisBar, WarrenLibrary]).addTo(map);
-var MOB = L.layerGroup([HakureiShrine, Abbadon_Palace, Faroff_Kingdom, WhiteShip, DemonUnderground]).addTo(map);
-var Landmark = L.layerGroup([Beacon, ForeverFalls, Ravenbanditcamp, Argus, Heaven, MoonShrine, AbbadonColosseum]).addTo(map);
+var Services = L.layerGroup([HikarisBar, WarrenLibrary, Meadshire]).addTo(map);
+var MOB = L.layerGroup([HakureiShrine, Abbadon_Palace, Faroff_Kingdom, WhiteShip, DemonUnderground, s9hrines]).addTo(map);
+var Landmark = L.layerGroup([Beacon, ForeverFalls, Ravenbanditcamp, Argus, Heaven, MoonShrine, AbbadonColosseum, BIGCITY]).addTo(map);
 var Houses = L.layerGroup([NewDevilMansion, Newdoreme, TealManor, Safehouse_Avenger, WhitePenthouse]).addTo(map);
-var Danger = L.layerGroup([TheEye]).addTo(map);
+var Danger = L.layerGroup([TheEye, POL, Freearch]).addTo(map);
 var Portal = L.layerGroup([TheRift]).addTo(map);
 var Events = L.layerGroup([Event_Arc]).addTo(map);
 
